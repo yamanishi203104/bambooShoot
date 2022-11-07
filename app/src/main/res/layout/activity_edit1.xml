@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".EditActivity1">
 
+    <com.example.githubtest.MyView
+        android:id="@+id/myView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="118dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
@@ -32,7 +42,8 @@
         android:layout_marginStart="8dp"
         android:entries="@array/pencolor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosePenButton" />
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Spinner
         android:id="@+id/spinner2"
@@ -41,7 +52,8 @@
         android:layout_marginStart="8dp"
         android:entries="@array/pensize"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/chooseEraserButton"
@@ -60,7 +72,8 @@
         android:layout_marginStart="8dp"
         android:entries="@array/pensize"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseEraserButton" />
+        app:layout_constraintTop_toBottomOf="@+id/chooseEraserButton"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/chooseBoardButton"
@@ -85,6 +98,7 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/videoView"
@@ -107,5 +121,17 @@
         android:layout_marginStart="8dp"
         android:entries="@array/tacticsboad"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseBoardButton" />
+        app:layout_constraintTop_toBottomOf="@+id/chooseBoardButton"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/readVideoButton"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="動画読込み"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/recButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
