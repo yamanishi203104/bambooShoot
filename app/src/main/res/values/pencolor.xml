@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pencolor">
+        <item>白</item>
+        <item>黄</item>
+        <item>黒</item>
+        <item>赤</item>
+    </string-array>
+</resources>
