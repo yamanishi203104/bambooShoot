@@ -18,10 +18,27 @@ class MyView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        paint.color = Color.BLUE
+        paint.color = Color.RED
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 20F
         canvas?.drawPath(path,paint)
+    }
+
+    fun changeColor(colorSelected: String){
+        when(colorSelected){
+            "白" -> paint.color = Color.WHITE
+            "黄" -> paint.color = Color.YELLOW
+            "黒" -> paint.color = Color.BLACK
+            "赤" -> paint.color = Color.RED
+        }
+    }
+
+    fun changeSize(sizeSelected: String){
+        when(sizeSelected){
+            "大" -> paint.strokeWidth = 20F
+            "中" -> paint.strokeWidth = 10F
+            "小" -> paint.strokeWidth = 5F
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
