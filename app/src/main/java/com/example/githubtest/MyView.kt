@@ -6,19 +6,28 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 
+/**
+ * @see https://howcang.com/2021/05/30/kt-paint/
+ */
 class MyView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     private var path : Path = Path()
     private var paint : Paint = Paint()
     private var drawX:Float = 0F
     private var drawY:Float = 0F
+    private var isFirst:Boolean=true
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        paint.color = Color.RED
+        if(isFirst) {
+            paint.color = Color.RED
+            isFirst = false
+        }
+
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 20F
         canvas?.drawPath(path,paint)
@@ -31,6 +40,11 @@ class MyView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
             "黒" -> paint.color = Color.BLACK
             "赤" -> paint.color = Color.RED
         }
+        //paint!!.color = color as Int
+        //this.paint.color = Color.YELLOW
+        //canvas?.drawPath(path,paint)
+        //invalidate()
+        Log.d("★","☆")
     }
 
     fun changeSize(sizeSelected: String){

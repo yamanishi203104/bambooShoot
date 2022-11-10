@@ -6,6 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".EditActivity1">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/videoView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tacticsboad_soccertate" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="534dp"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/chooseBoardButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="118dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
@@ -25,45 +56,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backButton" />
 
-    <Spinner
-        android:id="@+id/choosePenColorSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:entries="@array/pencolor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <Spinner
-        android:id="@+id/choosePenSizeSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:entries="@array/pensize"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosePenColorSpinner"
-        tools:ignore="TouchTargetSizeCheck" />
-
     <Button
-        android:id="@+id/chooseEraserButton"
+        android:id="@+id/clearButton"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="消しゴム"
+        android:text="clear"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosePenSizeSpinner" />
-
-    <Spinner
-        android:id="@+id/chooseEraserSizeSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:entries="@array/pensize"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseEraserButton"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/midpenButton" />
 
     <Button
         android:id="@+id/chooseBoardButton"
@@ -73,7 +74,7 @@
         android:text="戦術ボード切替"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseEraserSizeSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
 
     <Button
         android:id="@+id/recButton"
@@ -83,36 +84,6 @@
         android:text="REC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/videoView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/tacticsboad_soccertate" />
-
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="534dp"
-        android:layout_height="600dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/chooseBoardButton"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/chooseBoardSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:entries="@array/tacticsboad"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseBoardButton"
-        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/readVideoButton"
@@ -124,23 +95,79 @@
         app:layout_constraintBottom_toTopOf="@+id/recButton"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.example.githubtest.MyView
-        android:id="@+id/myView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="118dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/colortest"
+    <Spinner
+        android:id="@+id/chooseBoardSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Button"
+        android:entries="@array/tacticsboad"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/chooseBoardButton"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/blackButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        app:srcCompat="@drawable/kurokoma"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/whiteButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/blackButton"
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        app:srcCompat="@drawable/sirokoma"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/redButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/whiteButton"
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        app:srcCompat="@drawable/akakoma"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/yellowButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/redButton"
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        app:srcCompat="@drawable/kikoma"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/bigpenButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/whiteButton"
+        app:srcCompat="@drawable/big" />
+
+    <ImageButton
+        android:id="@+id/midpenButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/bigpenButton"
+        app:layout_constraintTop_toBottomOf="@+id/whiteButton"
+        app:srcCompat="@drawable/mid" />
+
+    <ImageButton
+        android:id="@+id/smallpenButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/midpenButton"
+        app:layout_constraintTop_toBottomOf="@+id/whiteButton"
+        app:srcCompat="@drawable/small" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
