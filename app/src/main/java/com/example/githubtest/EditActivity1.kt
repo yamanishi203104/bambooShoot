@@ -1,5 +1,6 @@
 package com.example.githubtest
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -26,6 +27,7 @@ class EditActivity1 : AppCompatActivity() {
     private lateinit var storage_vv: VideoView
     private lateinit var storage_btn: Button
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEdit1Binding.inflate(layoutInflater)
@@ -74,6 +76,43 @@ class EditActivity1 : AppCompatActivity() {
 
         storage_btn.setOnClickListener {
             openGalleryForImage()
+
+            val customSurfaceView = CustomSurfaceView(this, binding.surfaceView)
+            binding.surfaceView.setOnTouchListener { v, event ->
+                customSurfaceView.onTouch(event)
+            }
+
+            binding.clearButton.setOnClickListener {
+                customSurfaceView.reset()
+            }
+
+            binding.blackButton.setOnClickListener {
+                customSurfaceView.changeColor("black")
+            }
+
+            binding.whiteButton.setOnClickListener {
+                customSurfaceView.changeColor("white")
+            }
+
+            binding.redButton.setOnClickListener {
+                customSurfaceView.changeColor("red")
+            }
+
+            binding.yellowButton.setOnClickListener {
+                customSurfaceView.changeColor("yellow")
+            }
+
+            binding.bigpenButton.setOnClickListener {
+                customSurfaceView.changePensize("big")
+            }
+
+            binding.midpenButton.setOnClickListener {
+                customSurfaceView.changePensize("mid")
+            }
+
+            binding.smallpenButton.setOnClickListener {
+                customSurfaceView.changePensize("small")
+            }
         }
 
         Log.d("★","error")
