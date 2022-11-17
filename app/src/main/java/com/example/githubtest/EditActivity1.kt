@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.SurfaceView
 import android.view.View
 import android.widget.AdapterView
@@ -32,6 +33,33 @@ class EditActivity1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEdit1Binding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val actionBar = supportActionBar
+        actionBar!!.hide()
+
+        /*
+        @see https://medium.com/@NumberShapes/kotlin-draggable-imageview-480c1573cde5
+         */
+        /** color of red, pieces */
+        val redPlayers = arrayOf(binding.redPlayer01, binding.redPlayer02,binding.redPlayer03,binding.redPlayer04,binding.redPlayer05,binding.redPlayer06,binding.redPlayer07,binding.redPlayer08,binding.redPlayer09,binding.redPlayer10,binding.redPlayer11)
+        /** color ob blue pieces */
+        val bluePlayers = arrayOf(binding.bluePlayer01, binding.bluePlayer02,binding.bluePlayer03,binding.bluePlayer04,binding.bluePlayer05,binding.bluePlayer06,binding.bluePlayer07,binding.bluePlayer08,binding.bluePlayer09,binding.bluePlayer10,binding.bluePlayer11)
+
+        var listener = View.OnTouchListener { view, motionEvent ->
+            if (motionEvent.action == MotionEvent.ACTION_MOVE) {
+                view.y = motionEvent.rawY - view.height / 2
+                view.x = motionEvent.rawX - view.width / 2
+            }
+            true
+        }
+
+        for (player in redPlayers){
+            player.setOnTouchListener(listener)
+        }
+        for (player in bluePlayers){
+            player.setOnTouchListener(listener)
+        }
+        binding.blackBall.setOnTouchListener(listener)
 
         storage_vv = binding.videoView
         storage_btn = binding.readVideoButton
