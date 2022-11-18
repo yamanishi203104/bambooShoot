@@ -61,6 +61,27 @@ class EditActivity1 : AppCompatActivity() {
         }
         binding.blackBall.setOnTouchListener(listener)
 
+        binding.chooseBoardSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val text = parent?.selectedItem as String
+                when(text){
+                    "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccertate)
+                    "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketballtate)
+                    "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennistate)
+                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handballtate)
+                    "バレー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyballtate)
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+
         storage_vv = binding.videoView
         storage_btn = binding.readVideoButton
         setupPermissions()
