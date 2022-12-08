@@ -27,7 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 import java.lang.Exception
 
-class EditActivity : AppCompatActivity() {
+class EditActivity1 : AppCompatActivity() {
     private lateinit var binding: ActivityEdit1Binding
 
     private val REQUEST_GALLERY_TAKE = 2
