@@ -355,12 +355,12 @@
         app:layout_constraintTop_toBottomOf="@+id/redPlayer11"
         app:srcCompat="@drawable/blackpiece" />
 
-    <Button
-        android:id="@+id/recStopButton"
+    <ToggleButton
+        android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Button"
+        android:text="ToggleButton"
         app:layout_constraintBottom_toTopOf="@+id/readVideoButton"
         app:layout_constraintStart_toStartOf="parent" />
 
