@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Githubtest">
         <activity
+            android:name=".EditActivity3"
+            android:exported="false" />
+        <activity
             android:name=".EditActivity2"
             android:exported="false" />
         <activity
