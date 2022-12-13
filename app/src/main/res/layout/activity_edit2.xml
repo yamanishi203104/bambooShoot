@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditActivity1">
+    tools:context=".EditActivity2">
 
     <ImageView
         android:id="@+id/tacticalBoard"
@@ -13,20 +13,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/videoView"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/tacticsboad_soccertate" />
-
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="534dp"
-        android:layout_height="600dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tacticalBoard"
-        app:layout_constraintStart_toEndOf="@+id/chooseBoardButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:srcCompat="@drawable/tacticsboad_soccer" />
 
     <SurfaceView
         android:id="@+id/surfaceView"
@@ -76,16 +66,6 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clearButton" />
-
-    <Button
-        android:id="@+id/readVideoButton"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="動画読込み"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="505dp" />
 
     <Spinner
         android:id="@+id/chooseBoardSpinner"
@@ -142,7 +122,8 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/whiteButton"
-        app:srcCompat="@drawable/big" />
+        app:srcCompat="@drawable/big"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/midpenButton"
