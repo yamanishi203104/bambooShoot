@@ -13,11 +13,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button.setOnClickListener { onbuttonTapped(it) }
+        binding.imageButton.setOnClickListener { onbuttonTapped(it) }
     }
 
     fun onbuttonTapped(view: View){
-        val intent = Intent(this,EditActivity1::class.java)
+        val intent = Intent(this,ChooseLayout::class.java)
         startActivity(intent)
     }
 }
