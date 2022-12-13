@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditActivity1">
+
+    <ImageView
+        android:id="@+id/tacticalBoard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/videoView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/tacticsboad_soccertate" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="534dp"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tacticalBoard"
+        app:layout_constraintStart_toEndOf="@+id/chooseBoardButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="118dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="戻る"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/choosePenButton"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="ペン"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="clear"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/midpenButton" />
+
+    <Button
+        android:id="@+id/chooseBoardButton"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="戦術ボード切替"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+
+    <Button
+        android:id="@+id/recButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="REC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/readVideoButton"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="動画読込み"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/recButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/chooseBoardSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:entries="@array/tacticsboad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseBoardButton"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/blackButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        app:srcCompat="@drawable/kurokoma"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/whiteButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/blackButton"
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        app:srcCompat="@drawable/sirokoma"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/redButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/whiteButton"
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        app:srcCompat="@drawable/akakoma"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/yellowButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toEndOf="@+id/redButton"
+        app:layout_constraintTop_toBottomOf="@+id/choosePenButton"
+        app:srcCompat="@drawable/kikoma"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/bigpenButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/whiteButton"
+        app:srcCompat="@drawable/big" />
+
+    <ImageButton
+        android:id="@+id/midpenButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/bigpenButton"
+        app:layout_constraintTop_toBottomOf="@+id/whiteButton"
+        app:srcCompat="@drawable/mid" />
+
+    <ImageButton
+        android:id="@+id/smallpenButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/midpenButton"
+        app:layout_constraintTop_toBottomOf="@+id/whiteButton"
+        app:srcCompat="@drawable/small" />
+
+    <ImageView
+        android:id="@+id/redPlayer01"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer02"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer01"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer03"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer02"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer04"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer03"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer05"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer04"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer06"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer05"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer07"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer06"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer08"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer07"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer09"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer08"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer10"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer09"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/redPlayer11"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer10"
+        app:srcCompat="@drawable/redpiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer01"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer11"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer02"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer02"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer10"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer03"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer03"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer09"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer04"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer04"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer08"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer05"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer05"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer07"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer06"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer06"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer06"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer07"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer07"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer05"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer08"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer08"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer04"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer09"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer09"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer03"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer10"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer10"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer02"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer11"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/bluePlayer11"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/redPlayer01"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bluepiece" />
+
+    <ImageView
+        android:id="@+id/blackBall"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redPlayer11"
+        app:srcCompat="@drawable/blackpiece" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="ToggleButton"
+        app:layout_constraintBottom_toTopOf="@+id/readVideoButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
