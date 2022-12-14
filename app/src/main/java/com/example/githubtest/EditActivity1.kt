@@ -117,9 +117,9 @@ class EditActivity1 : AppCompatActivity() {
             }
         }
 
-//        storage_vv = binding.videoView
-//        storage_btn = binding.readVideoButton
-//        setupPermissions()
+        storage_vv = binding.videoView
+        storage_btn = binding.readVideoButton
+        setupPermissions()
 
         val customSurfaceView = CustomSurfaceView(this, binding.surfaceView)
         binding.surfaceView.setOnTouchListener { v, event ->
