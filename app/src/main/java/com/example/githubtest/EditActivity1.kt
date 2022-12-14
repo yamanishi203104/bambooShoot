@@ -108,7 +108,7 @@ class EditActivity1 : AppCompatActivity() {
                     "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccertate)
                     "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketballtate)
                     "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennistate)
-                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handball)
+                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handballtate)
                     "バレー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyballtate)
                 }
             }
