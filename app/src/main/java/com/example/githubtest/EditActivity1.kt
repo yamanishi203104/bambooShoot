@@ -199,6 +199,8 @@ class EditActivity1 : AppCompatActivity() {
             }
         }
 
+        binding.backButton.setOnClickListener { onbuttonTapped(it) }
+
 //        val metrics = DisplayMetrics()
 //        windowManager.defaultDisplay.getMetrics(metrics)
 //        mScreenDensity = metrics.densityDpi
@@ -278,6 +280,23 @@ class EditActivity1 : AppCompatActivity() {
 //        }catch (e: Exception){
 //            e.printStackTrace()
 //        }
+    }
+
+    private fun setupPermissions(){
+        val permission = ContextCompat.checkSelfPermission(this,android.Manifest.permission.READ_EXTERNAL_STORAGE)
+
+        if(permission != PackageManager.PERMISSION_GRANTED){
+            makeRequest()
+        }
+    }
+
+    private fun makeRequest(){
+        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),RECORD_REQUEST_CODE)
+    }
+
+    fun onbuttonTapped(view: View){
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
     }
 
 //    private fun setupPermissions(){

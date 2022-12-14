@@ -3,6 +3,7 @@ package com.example.githubtest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.VideoView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.githubtest.databinding.ActivityEdit3Binding
 
 class EditActivity3 : AppCompatActivity() {
@@ -120,6 +123,8 @@ class EditActivity3 : AppCompatActivity() {
                 customSurfaceView.changePensize("small")
             }
         }
+
+        binding.backButton.setOnClickListener { onbuttonTapped(it) }
     }
 
     private fun openGalleryForImage(){
@@ -140,5 +145,22 @@ class EditActivity3 : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun setupPermissions(){
+        val permission = ContextCompat.checkSelfPermission(this,android.Manifest.permission.READ_EXTERNAL_STORAGE)
+
+        if(permission != PackageManager.PERMISSION_GRANTED){
+            makeRequest()
+        }
+    }
+
+    private fun makeRequest(){
+        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),RECORD_REQUEST_CODE)
+    }
+
+    fun onbuttonTapped(view: View){
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
     }
 }

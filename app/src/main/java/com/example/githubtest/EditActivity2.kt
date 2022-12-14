@@ -110,6 +110,8 @@ class EditActivity2 : AppCompatActivity() {
             customSurfaceView.reset()
         }
 
+        binding.backButton.setOnClickListener { onbuttonTapped(it) }
+
 //        storage_btn.setOnClickListener {
 //            openGalleryForImage()
 //
@@ -150,6 +152,11 @@ class EditActivity2 : AppCompatActivity() {
 //                customSurfaceView.changePensize("small")
 //            }
         }
+
+    fun onbuttonTapped(view: View){
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
+    }
 
 //        private fun openGalleryForImage(){
 //            val intent = Intent(Intent.ACTION_PICK)
