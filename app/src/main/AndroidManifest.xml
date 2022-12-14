@@ -15,13 +15,16 @@
         android:theme="@style/Theme.Githubtest">
         <activity
             android:name=".ChooseLayout"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".EditActivity3"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".EditActivity2"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".EditActivity1"
             android:exported="false"

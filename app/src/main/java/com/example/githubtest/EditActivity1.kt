@@ -108,7 +108,7 @@ class EditActivity1 : AppCompatActivity() {
                     "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccertate)
                     "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketballtate)
                     "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennistate)
-                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handballtate)
+                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handball)
                     "バレー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyballtate)
                 }
             }
@@ -158,7 +158,7 @@ class EditActivity1 : AppCompatActivity() {
             customSurfaceView.reset()
         }
 
-        storage_btn.setOnClickListener {
+        binding.readVideoButton.setOnClickListener {
             openGalleryForImage()
 
             val customSurfaceView = CustomSurfaceView(this, binding.surfaceView)

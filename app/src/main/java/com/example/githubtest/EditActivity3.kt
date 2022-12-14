@@ -76,7 +76,7 @@ class EditActivity3 : AppCompatActivity() {
             customSurfaceView.reset()
         }
 
-        storage_btn.setOnClickListener {
+        binding.readVideoButton.setOnClickListener {
             openGalleryForImage()
 
             val customSurfaceView = CustomSurfaceView(this, binding.surfaceView)
