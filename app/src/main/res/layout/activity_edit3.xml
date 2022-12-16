@@ -131,4 +131,13 @@
         app:layout_constraintTop_toBottomOf="@+id/whiteButton"
         app:srcCompat="@drawable/small" />
 
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="一時停止"
+        app:layout_constraintBottom_toTopOf="@+id/readVideoButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

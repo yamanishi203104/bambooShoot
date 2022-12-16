@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="tacticsboad">
+    <string-array name="tacticsboad">]
         <item>サッカー</item>
         <item>バスケ</item>
         <item>テニス</item>
         <item>ハンドボール</item>
         <item>バレー</item>
+        <item>フリー</item>
     </string-array>
 </resources>

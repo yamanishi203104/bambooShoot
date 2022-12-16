@@ -72,6 +72,8 @@ class EditActivity1 : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
+        var check:Boolean = true
+
         /*
         @see https://medium.com/@NumberShapes/kotlin-draggable-imageview-480c1573cde5
          */
@@ -105,6 +107,7 @@ class EditActivity1 : AppCompatActivity() {
             ) {
                 val text = parent?.selectedItem as String
                 when(text){
+                    "フリー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_freetate)
                     "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccertate)
                     "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketballtate)
                     "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennistate)
@@ -156,6 +159,18 @@ class EditActivity1 : AppCompatActivity() {
 
         binding.clearButton.setOnClickListener {
             customSurfaceView.reset()
+        }
+
+        binding.playButton.setOnClickListener {
+            if(check == true){
+                binding.videoView.pause()
+                binding.playButton.setText("再生")
+                check = false
+            }else if (check == false){
+                binding.videoView.start()
+                binding.playButton.setText("一時停止")
+                check = true
+            }
         }
 
         binding.readVideoButton.setOnClickListener {

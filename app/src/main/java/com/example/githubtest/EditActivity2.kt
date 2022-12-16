@@ -61,6 +61,7 @@ class EditActivity2 : AppCompatActivity() {
             ) {
                 val text = parent?.selectedItem as String
                 when(text){
+                    "フリー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_free)
                     "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccer)
                     "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketball)
                     "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennis)

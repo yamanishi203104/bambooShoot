@@ -34,6 +34,8 @@ class EditActivity3 : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
+        var check:Boolean = true
+
         var listener = View.OnTouchListener { view, motionEvent ->
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
                 view.y = motionEvent.rawY - view.height / 2
@@ -81,6 +83,18 @@ class EditActivity3 : AppCompatActivity() {
 
         binding.clearButton.setOnClickListener {
             customSurfaceView.reset()
+        }
+
+        binding.playButton.setOnClickListener {
+            if(check == true){
+                binding.videoView.pause()
+                binding.playButton.setText("再生")
+                check = false
+            }else if (check == false){
+                binding.videoView.start()
+                binding.playButton.setText("一時停止")
+                check = true
+            }
         }
 
         binding.readVideoButton.setOnClickListener {

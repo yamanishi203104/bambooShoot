@@ -13,6 +13,9 @@ class ChooseLayout : AppCompatActivity() {
         binding = ActivityChooseLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val actionBar = supportActionBar
+        actionBar!!.hide()
+
         binding.button.setOnClickListener { onbuttonTapped(it) }
 
         binding.button2.setOnClickListener { onbutton2Tapped(it) }
