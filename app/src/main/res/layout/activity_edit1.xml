@@ -21,7 +21,7 @@
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="534dp"
-        android:layout_height="600dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tacticalBoard"
         app:layout_constraintStart_toEndOf="@+id/chooseBoardButton"
