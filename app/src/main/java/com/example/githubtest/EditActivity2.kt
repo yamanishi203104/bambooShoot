@@ -31,6 +31,15 @@ class EditActivity2 : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
+        val redPlayer01x : Float = binding.redPlayer01.x
+        val redPlayer01y : Float = binding.redPlayer01.y
+
+        binding.button4.setOnClickListener {
+            binding.redPlayer01.translationX = redPlayer01x
+            binding.redPlayer01.translationY = redPlayer01y
+        }
+
+
         /** color of red, pieces */
         val redPlayers = arrayOf(binding.redPlayer01, binding.redPlayer02,binding.redPlayer03,binding.redPlayer04,binding.redPlayer05,binding.redPlayer06,binding.redPlayer07,binding.redPlayer08,binding.redPlayer09,binding.redPlayer10,binding.redPlayer11)
         /** color ob blue pieces */
