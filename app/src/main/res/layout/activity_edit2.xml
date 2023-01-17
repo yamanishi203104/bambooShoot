@@ -62,9 +62,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="コマ初期化"
+        android:text="コマリセット"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
 
     <Button
         android:id="@+id/chooseBoardButton"
@@ -74,7 +75,7 @@
         android:text="戦術ボード切替"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+        app:layout_constraintTop_toBottomOf="@+id/pieceResetButton" />
 
     <Spinner
         android:id="@+id/chooseBoardSpinner"
@@ -359,14 +360,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/redPlayer11"
         app:srcCompat="@drawable/blackpiece" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
