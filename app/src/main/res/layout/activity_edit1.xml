@@ -379,4 +379,13 @@
         app:layout_constraintBottom_toTopOf="@+id/readVideoButton"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/pieceResetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="コマ初期化"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
