@@ -58,6 +58,15 @@
         app:layout_constraintTop_toBottomOf="@+id/midpenButton" />
 
     <Button
+        android:id="@+id/pieceResetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="コマ初期化"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner" />
+
+    <Button
         android:id="@+id/chooseBoardButton"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
