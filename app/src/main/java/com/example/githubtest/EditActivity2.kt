@@ -120,28 +120,6 @@ class EditActivity2 : AppCompatActivity() {
         }
         binding.blackBall.setOnTouchListener(listener)
 
-        binding.chooseBoardSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val text = parent?.selectedItem as String
-                when(text){
-                    "フリー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_free)
-                    "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccer)
-                    "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketball)
-                    "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennis)
-                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handball)
-                    "バレー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyball)
-                }
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-        }
-
         binding.pieceResetButton.setOnClickListener {
             binding.blackBall.translationX = ballx
             binding.blackBall.translationY = bally
@@ -196,6 +174,47 @@ class EditActivity2 : AppCompatActivity() {
 
         binding.clearButton.setOnClickListener {
             customSurfaceView.reset()
+        }
+
+        binding.chooseBoardSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val text = parent?.selectedItem as String
+                when(text){
+                    "フリー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_free)
+                    "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccer)
+                    "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketball)
+                    "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennis)
+                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handball)
+                    "バレー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyball)
+                }
+
+                binding.blackBall.translationX = ballx
+                binding.blackBall.translationY = bally
+
+                for (player in redPlayers){
+                    var i = 0
+                    player.translationX = redPlayers_x[i]
+                    player.translationY = redPlayers_y[i]
+                    i++
+                }
+
+                for (player in bluePlayers){
+                    var i = 0
+                    player.translationX = bluePlayers_x[i]
+                    player.translationY = bluePlayers_y[i]
+                    i++
+                }
+
+                customSurfaceView.reset()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
         }
 
         binding.backButton.setOnClickListener { onbuttonTapped(it) }
