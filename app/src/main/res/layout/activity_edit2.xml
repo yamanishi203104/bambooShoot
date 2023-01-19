@@ -18,6 +18,17 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/tacticsboad_soccer" />
 
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="722dp"
+        android:layout_height="600dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <SurfaceView
         android:id="@+id/surfaceView"
         android:layout_width="0dp"
@@ -360,5 +371,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/redPlayer11"
         app:srcCompat="@drawable/blackpiece" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_video" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
