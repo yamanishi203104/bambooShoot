@@ -138,7 +138,8 @@ class EditActivity2 : AppCompatActivity() {
                 i++
             }
         }
-
+        
+        /* 不要
         val customSurfaceView = CustomSurfaceView(this, binding.surfaceView)
         binding.surfaceView.setOnTouchListener { v, event ->
             customSurfaceView.onTouch(event)
@@ -176,6 +177,11 @@ class EditActivity2 : AppCompatActivity() {
             customSurfaceView.reset()
         }
 
+        binding.button4.setOnClickListener {
+            customSurfaceView.undoCanvasDrawing()
+        }
+        */
+
         binding.chooseBoardSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -210,7 +216,7 @@ class EditActivity2 : AppCompatActivity() {
                     i++
                 }
 
-                customSurfaceView.reset()
+                DrawingView.clearCanvas()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
 

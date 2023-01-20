@@ -2,10 +2,12 @@ package com.example.githubtest
 
 import android.content.Context
 import android.graphics.*
+import android.util.Log
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.WindowManager
+import androidx.core.graphics.or
 
 /*
 @see https://qiita.com/ymshun/items/a1447bdfcea8ef24d765
@@ -20,6 +22,11 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
     var prevBitmap: Bitmap? = null
     private var prevCanvas: Canvas? = null
     private var canvas: Canvas? = null
+
+    /* 追加分　*/
+    private val mUndoStack = ArrayDeque(listOf(null))
+    //private var
+    /* 追加分 */
 
     var width: Int? = null
     var height: Int? = null
@@ -143,6 +150,8 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         draw(pathInfo(path!!, color!!))
         /// 前回のキャンバスを描画
         prevCanvas!!.drawPath(path!!, paint!!)
+        //undoStackにpathをadd
+        mUndoStack.addLast(path as Nothing?)
     }
 
     /// resetメソッド
@@ -152,6 +161,21 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         canvas = surfaceHolder!!.lockCanvas()
         canvas?.drawColor(0, PorterDuff.Mode.CLEAR)
         surfaceHolder!!.unlockCanvasAndPost(canvas)
+    }
+
+    /// undo メソッド(仮)
+    fun undoCanvasDrawing() {
+        if (mUndoStack.isEmpty()) {
+            return;
+        }
+
+        // undoスタックからパスを取り出し
+        val lastUndoPath = mUndoStack.removeLast()
+        // ロックしてキャンバスを取得
+        val canvas = surfaceHolder!!.lockCanvas()
+        //取得したキャンバスをクリア
+        canvas.drawColor(0,PorterDuff.Mode.CLEAR)
+
     }
 
     /// color チェンジメソッド
