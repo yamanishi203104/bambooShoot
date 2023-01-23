@@ -24,11 +24,12 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
     var prevBitmap: Bitmap? = null
     private var prevCanvas: Canvas? = null
     private var canvas: Canvas? = null
+    val linears: Linears = Linears()
 
 //    private val mUndoStack: ArrayDeque<Path> = ArrayDeque()
 //    private val mColorStack: ArrayDeque<Int> = ArrayDeque()
 
-    private val linearsStack: ArrayDeque<LinearBean> = ArrayDeque()
+//    private val linearsStack: ArrayDeque<LinearBean> = ArrayDeque()
 
     var width: Int? = null
     var height: Int? = null
@@ -155,10 +156,20 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 
 //        mUndoStack.addLast(path!!)
 //        mColorStack.addLast(color!!)
-        paint!!.color = color!!
 
-        linearsStack.addLast(LinearBean(path = path!!,paint = paint!!))
-        Log.d("★", "path:" + path!!.toString() + ", color:" + paint!!.color.toString())
+//        val paint_:Paint = Paint()
+//        paint_!!.color = color!!
+//        paint_!!.style = Paint.Style.STROKE
+//        paint_!!.strokeCap = Paint.Cap.ROUND
+//        paint_!!.isAntiAlias = true
+//        paint_!!.strokeWidth = pensiz
+
+//        linearsStack.addLast(LinearBean(path = path!!,paint = paint_!!))
+        linears.add(path!!,color!!)
+
+//        val a = linearsStack.last()
+        val a = linears.last()
+        Log.d("★", "path:" + a.path!!.toString() + ", color:" + a.paint!!.color.toString())
     }
 
     /// resetメソッド
@@ -168,15 +179,18 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         canvas = surfaceHolder!!.lockCanvas()
         canvas?.drawColor(0, PorterDuff.Mode.CLEAR)
         surfaceHolder!!.unlockCanvasAndPost(canvas)
-        linearsStack.removeAll(linearsStack)
+//        linearsStack.removeAll(linearsStack)
+        linears.removeAll()
     }
+
+    val counter : Int = 0
 
     /// undo メソッド(仮)
     fun undo(){
 //        if(mUndoStack.isEmpty()){
 //            return
 //        }
-        if(linearsStack.isEmpty()){
+        if(linears.isEmpty()){
             return
         }
 
@@ -201,12 +215,11 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 //            canvas!!.drawPath(path, paint!!)
 //            temp--
 //        }
-        for((index, item) in linearsStack.withIndex()) {
+        for((index, item) in linears.withIndex()) {
             if(index == linearsStack.size - 1){
                 break
             }
-            paint!!.color = item.paint.color
-            canvas!!.drawPath(item.path, paint!!)
+            canvas!!.drawPath(item.path, item.paint)
             Log.d("★★", "path:" + item.path + ", color:" + item.paint.color.toString())
         }
 
