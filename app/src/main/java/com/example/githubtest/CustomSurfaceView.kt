@@ -8,6 +8,8 @@ import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.WindowManager
 import androidx.core.graphics.or
+import java.util.*
+import kotlin.collections.ArrayDeque
 
 /*
 @see https://qiita.com/ymshun/items/a1447bdfcea8ef24d765
@@ -23,10 +25,10 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
     private var prevCanvas: Canvas? = null
     private var canvas: Canvas? = null
 
-    /* 追加分　*/
-    private val mUndoStack = ArrayDeque(listOf(null))
-    //private var
-    /* 追加分 */
+//    private val mUndoStack: ArrayDeque<Path> = ArrayDeque()
+//    private val mColorStack: ArrayDeque<Int> = ArrayDeque()
+
+    private val linearsStack: ArrayDeque<LinearBean> = ArrayDeque()
 
     var width: Int? = null
     var height: Int? = null
@@ -150,8 +152,13 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         draw(pathInfo(path!!, color!!))
         /// 前回のキャンバスを描画
         prevCanvas!!.drawPath(path!!, paint!!)
-        //undoStackにpathをadd
-        mUndoStack.addLast(path as Nothing?)
+
+//        mUndoStack.addLast(path!!)
+//        mColorStack.addLast(color!!)
+        paint!!.color = color!!
+
+        linearsStack.addLast(LinearBean(path = path!!,paint = paint!!))
+        Log.d("★", "path:" + path!!.toString() + ", color:" + paint!!.color.toString())
     }
 
     /// resetメソッド
@@ -161,21 +168,50 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         canvas = surfaceHolder!!.lockCanvas()
         canvas?.drawColor(0, PorterDuff.Mode.CLEAR)
         surfaceHolder!!.unlockCanvasAndPost(canvas)
+        linearsStack.removeAll(linearsStack)
     }
 
     /// undo メソッド(仮)
-    fun undoCanvasDrawing() {
-        if (mUndoStack.isEmpty()) {
-            return;
+    fun undo(){
+//        if(mUndoStack.isEmpty()){
+//            return
+//        }
+        if(linearsStack.isEmpty()){
+            return
         }
 
-        // undoスタックからパスを取り出し
-        val lastUndoPath = mUndoStack.removeLast()
-        // ロックしてキャンバスを取得
-        val canvas = surfaceHolder!!.lockCanvas()
-        //取得したキャンバスをクリア
-        canvas.drawColor(0,PorterDuff.Mode.CLEAR)
+//        mUndoStack.removeLast()
+//        mColorStack.removeLast()
 
+        canvas = Canvas()
+        /// ロックしてキャンバスを取得
+        canvas = surfaceHolder!!.lockCanvas()
+
+        //// キャンバスのクリア
+        canvas!!.drawColor(0, PorterDuff.Mode.CLEAR)
+
+        /// ビットマップを初期化
+        initializeBitmap()
+
+        //// pathを描画
+        // TODO 一つまで再現できるようにする必要あり。
+//        var temp = mColorStack.size-1
+//        for(path in mUndoStack){
+//            paint!!.color = mColorStack[temp]
+//            canvas!!.drawPath(path, paint!!)
+//            temp--
+//        }
+        for((index, item) in linearsStack.withIndex()) {
+            if(index == linearsStack.size - 1){
+                break
+            }
+            paint!!.color = item.paint.color
+            canvas!!.drawPath(item.path, paint!!)
+            Log.d("★★", "path:" + item.path + ", color:" + item.paint.color.toString())
+        }
+
+        /// ロックを解除
+        surfaceHolder!!.unlockCanvasAndPost(canvas)
     }
 
     /// color チェンジメソッド

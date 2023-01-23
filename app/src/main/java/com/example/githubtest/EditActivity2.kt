@@ -18,10 +18,7 @@ import android.util.Log
 import android.util.SparseIntArray
 import android.view.MotionEvent
 import android.view.View
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.Toast
-import android.widget.VideoView
+import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.githubtest.databinding.ActivityEdit2Binding
@@ -138,8 +135,7 @@ class EditActivity2 : AppCompatActivity() {
                 i++
             }
         }
-        
-        /* 不要
+
         val customSurfaceView = CustomSurfaceView(this, binding.surfaceView)
         binding.surfaceView.setOnTouchListener { v, event ->
             customSurfaceView.onTouch(event)
@@ -178,9 +174,8 @@ class EditActivity2 : AppCompatActivity() {
         }
 
         binding.button4.setOnClickListener {
-            customSurfaceView.undoCanvasDrawing()
+            customSurfaceView.undo()
         }
-        */
 
         binding.chooseBoardSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -216,7 +211,7 @@ class EditActivity2 : AppCompatActivity() {
                     i++
                 }
 
-                DrawingView.clearCanvas()
+                customSurfaceView.reset()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
