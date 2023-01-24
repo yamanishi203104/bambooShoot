@@ -5,8 +5,10 @@ import android.graphics.Paint
 import android.graphics.Path
 
 class Linears {
+
     public var counter = 0
     var linears: ArrayDeque<LinearBean> = ArrayDeque()
+
     public fun isEmpty(): Boolean {
         return this.linears.isEmpty()
     }

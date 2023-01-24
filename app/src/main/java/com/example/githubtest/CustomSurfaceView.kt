@@ -196,6 +196,7 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 
 //        mUndoStack.removeLast()
 //        mColorStack.removeLast()
+        linears.redraw()
 
         canvas = Canvas()
         /// ロックしてキャンバスを取得
@@ -215,8 +216,8 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 //            canvas!!.drawPath(path, paint!!)
 //            temp--
 //        }
-        for((index, item) in linears.withIndex()) {
-            if(index == linearsStack.size - 1){
+        for((index, item) in linears.linears.withIndex()) {
+            if(index == linears.limitLast()){
                 break
             }
             canvas!!.drawPath(item.path, item.paint)
