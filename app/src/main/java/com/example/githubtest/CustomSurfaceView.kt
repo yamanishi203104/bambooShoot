@@ -165,7 +165,7 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 //        paint_!!.strokeWidth = pensiz
 
 //        linearsStack.addLast(LinearBean(path = path!!,paint = paint_!!))
-        linears.add(path!!,color!!)
+        linears.add(path!!,color!!,pensiz)
 
 //        val a = linearsStack.last()
         val a = linears.last()

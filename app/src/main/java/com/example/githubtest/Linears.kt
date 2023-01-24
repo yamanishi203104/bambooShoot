@@ -21,13 +21,13 @@ class Linears {
         this.linears.addLast(LinearBean(path, paint))
     }
 
-    public fun add(path: Path, color: Int) {
+    public fun add(path: Path, color: Int, pensize: Float) {
         val paint :Paint = Paint()
         paint!!.color = color
         paint!!.style = Paint.Style.STROKE
         paint!!.strokeCap = Paint.Cap.ROUND
         paint!!.isAntiAlias = true
-        paint!!.strokeWidth = 15f
+        paint!!.strokeWidth = pensize
         this.linears.addLast(LinearBean(path, paint))
     }
 
