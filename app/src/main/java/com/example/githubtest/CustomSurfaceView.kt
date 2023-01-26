@@ -7,6 +7,7 @@ import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.WindowManager
+import androidx.core.graphics.BitmapCompat
 import androidx.core.graphics.or
 import java.util.*
 import kotlin.collections.ArrayDeque
@@ -22,6 +23,7 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
     private var path: Path? = null
     var color: Int? = null
     var prevBitmap: Bitmap? = null
+    var tempBitmap: Bitmap? = null
     private var prevCanvas: Canvas? = null
     private var canvas: Canvas? = null
     val linears: Linears = Linears()
@@ -165,6 +167,12 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 //        paint_!!.strokeWidth = pensiz
 
 //        linearsStack.addLast(LinearBean(path = path!!,paint = paint_!!))
+
+//        while(linears.counter-- > 0){
+//            linears.remove()
+//        }
+//        linears.counter = 0
+
         linears.add(path!!,color!!,pensiz)
 
 //        val a = linearsStack.last()
@@ -181,9 +189,10 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         surfaceHolder!!.unlockCanvasAndPost(canvas)
 //        linearsStack.removeAll(linearsStack)
         linears.removeAll()
+        linears.counter = 0
     }
 
-    val counter : Int = 0
+//    val counter : Int = 0
 
     /// undo メソッド(仮)
     fun undo(){
@@ -193,6 +202,11 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         if(linears.isEmpty()){
             return
         }
+
+        if(linears.getsize() == linears.counter){
+            return
+        }
+
 
 //        mUndoStack.removeLast()
 //        mColorStack.removeLast()
@@ -206,7 +220,8 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         canvas!!.drawColor(0, PorterDuff.Mode.CLEAR)
 
         /// ビットマップを初期化
-        initializeBitmap()
+//        tempBitmap = Bitmap.createBitmap(width!!, height!!, Bitmap.Config.ARGB_8888)
+//        canvas!!.drawBitmap(tempBitmap!!, 0F, 0F, null)
 
         //// pathを描画
         // TODO 一つまで再現できるようにする必要あり。
@@ -226,6 +241,8 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 
         /// ロックを解除
         surfaceHolder!!.unlockCanvasAndPost(canvas)
+
+        //prevBitmap =
     }
 
     /// color チェンジメソッド

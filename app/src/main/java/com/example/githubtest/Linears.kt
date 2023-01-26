@@ -52,6 +52,10 @@ class Linears {
         return this.linears
     }
 
+    public fun getsize() :Int{
+        return linears.size
+    }
+
 }
 
 //public var limiter = linears - 1
