@@ -210,6 +210,7 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 
 //        mUndoStack.removeLast()
 //        mColorStack.removeLast()
+        linears.remove()
         linears.redraw()
 
         canvas = Canvas()
@@ -231,8 +232,8 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 //            canvas!!.drawPath(path, paint!!)
 //            temp--
 //        }
-        for((index, item) in linears.linears.withIndex()) {
-            if(index == linears.limitLast()){
+        for(item in linears.linears) {
+            if(linears.isEmpty()){
                 break
             }
             canvas!!.drawPath(item.path, item.paint)
