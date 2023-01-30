@@ -2,10 +2,15 @@ package com.example.githubtest
 
 import android.content.Context
 import android.graphics.*
+import android.util.Log
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.WindowManager
+import androidx.core.graphics.BitmapCompat
+import androidx.core.graphics.or
+import java.util.*
+import kotlin.collections.ArrayDeque
 
 /*
 @see https://qiita.com/ymshun/items/a1447bdfcea8ef24d765
@@ -20,6 +25,12 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
     var prevBitmap: Bitmap? = null
     private var prevCanvas: Canvas? = null
     private var canvas: Canvas? = null
+    val linears: Linears = Linears()
+
+//    private val mUndoStack: ArrayDeque<Path> = ArrayDeque()
+//    private val mColorStack: ArrayDeque<Int> = ArrayDeque()
+
+//    private val linearsStack: ArrayDeque<LinearBean> = ArrayDeque()
 
     var width: Int? = null
     var height: Int? = null
@@ -143,6 +154,29 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         draw(pathInfo(path!!, color!!))
         /// 前回のキャンバスを描画
         prevCanvas!!.drawPath(path!!, paint!!)
+
+//        mUndoStack.addLast(path!!)
+//        mColorStack.addLast(color!!)
+
+//        val paint_:Paint = Paint()
+//        paint_!!.color = color!!
+//        paint_!!.style = Paint.Style.STROKE
+//        paint_!!.strokeCap = Paint.Cap.ROUND
+//        paint_!!.isAntiAlias = true
+//        paint_!!.strokeWidth = pensiz
+
+//        linearsStack.addLast(LinearBean(path = path!!,paint = paint_!!))
+
+//        while(linears.counter-- > 0){
+//            linears.remove()
+//        }
+//        linears.counter = 0
+
+        linears.add(path!!,color!!,pensiz)
+
+//        val a = linearsStack.last()
+        val a = linears.last()
+        Log.d("★", "path:" + a.path!!.toString() + ", color:" + a.paint!!.color.toString())
     }
 
     /// resetメソッド
@@ -152,6 +186,65 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         canvas = surfaceHolder!!.lockCanvas()
         canvas?.drawColor(0, PorterDuff.Mode.CLEAR)
         surfaceHolder!!.unlockCanvasAndPost(canvas)
+//        linearsStack.removeAll(linearsStack)
+        linears.removeAll()
+        linears.counter = 0
+    }
+
+//    val counter : Int = 0
+
+    /// undo メソッド(仮)
+    fun undo(){
+//        if(mUndoStack.isEmpty()){
+//            return
+//        }
+        if(linears.isEmpty()){
+            return
+        }
+
+        if(linears.getsize() == linears.counter){
+            return
+        }
+
+
+//        mUndoStack.removeLast()
+//        mColorStack.removeLast()
+        linears.remove()
+        linears.redraw()
+
+        canvas = Canvas()
+        /// ロックしてキャンバスを取得
+        canvas = surfaceHolder!!.lockCanvas()
+
+        //// キャンバスのクリア
+        canvas!!.drawColor(0, PorterDuff.Mode.CLEAR)
+
+        /// ビットマップを初期化
+//        tempBitmap = Bitmap.createBitmap(width!!, height!!, Bitmap.Config.ARGB_8888)
+//        canvas!!.drawBitmap(tempBitmap!!, 0F, 0F, null)
+        initializeBitmap()
+
+        //// pathを描画
+        // TODO 一つまで再現できるようにする必要あり。
+//        var temp = mColorStack.size-1
+//        for(path in mUndoStack){
+//            paint!!.color = mColorStack[temp]
+//            canvas!!.drawPath(path, paint!!)
+//            temp--
+//        }
+        for(item in linears.linears) {
+            if(linears.isEmpty()){
+                break
+            }
+            canvas!!.drawPath(item.path, item.paint)
+            prevCanvas!!.drawPath(item.path, item.paint)
+            Log.d("★★", "path:" + item.path + ", color:" + item.paint.color.toString())
+        }
+
+        /// ロックを解除
+        surfaceHolder!!.unlockCanvasAndPost(canvas)
+
+        //prevBitmap =
     }
 
     /// color チェンジメソッド
