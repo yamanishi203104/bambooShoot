@@ -262,43 +262,43 @@
         app:srcCompat="@drawable/redpiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer01"
+        android:id="@+id/bluePlayer11"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer11"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer02"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer10"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer02"
+        android:id="@+id/bluePlayer10"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer10"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer03"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer09"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer03"
+        android:id="@+id/bluePlayer09"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer09"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer04"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer08"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer04"
+        android:id="@+id/bluePlayer08"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer08"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer05"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer07"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer05"
+        android:id="@+id/bluePlayer07"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
@@ -312,47 +312,47 @@
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer06"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer07"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer05"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer07"
+        android:id="@+id/bluePlayer05"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer05"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer08"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer04"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer08"
+        android:id="@+id/bluePlayer04"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer04"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer09"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer03"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer09"
+        android:id="@+id/bluePlayer03"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer03"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer10"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer02"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer10"
+        android:id="@+id/bluePlayer02"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/redPlayer02"
-        app:layout_constraintTop_toBottomOf="@+id/bluePlayer11"
+        app:layout_constraintTop_toBottomOf="@+id/bluePlayer01"
         app:srcCompat="@drawable/bluepiece" />
 
     <ImageView
-        android:id="@+id/bluePlayer11"
+        android:id="@+id/bluePlayer01"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"

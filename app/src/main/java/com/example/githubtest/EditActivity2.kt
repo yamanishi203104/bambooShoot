@@ -7,9 +7,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.display.DisplayManager
 import android.hardware.display.VirtualDisplay
+import android.media.AsyncPlayer
 import android.media.MediaRecorder
 import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -181,8 +183,15 @@ class EditActivity2 : AppCompatActivity() {
             customSurfaceView.reset()
         }
 
+        var komalimit:Int = 0
         binding.button4.setOnClickListener {
-            customSurfaceView.undo()
+//            for (i in redPlayers.indices.reversed()){
+//                if (i >= komalimit){
+//                    redPlayers[i].visibility = View.INVISIBLE
+//                }else{
+//                    redPlayers[i].visibility = View.VISIBLE
+//                }
+//            }
         }
 
         binding.chooseBoardSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -194,13 +203,21 @@ class EditActivity2 : AppCompatActivity() {
             ) {
                 val text = parent?.selectedItem as String
                 when(text){
-                    "フリー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_free)
+                    "フリー" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_free)
+                        komalimit = KomaLimit.FREE.num
+                    }
                     "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccer)
-                    "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketball)
+                    "バスケ" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketball)
+                        komalimit = KomaLimit.BASKET.num
+                    }
                     "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennis)
                     "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handball)
                     "バレー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyball)
                 }
+
+                komahenko(komalimit, redPlayers, bluePlayers)
 
                 binding.blackBall.translationX = ballx
                 binding.blackBall.translationY = bally
@@ -473,6 +490,29 @@ class EditActivity2 : AppCompatActivity() {
         }
     }
     /*録画機能#3ここまで*/
+
+    fun komahenko(
+        komalimit:Int,
+        redPlayers:Array<ImageView>,
+        bluePlayers:Array<ImageView>){
+        for (i in redPlayers.indices.reversed()){
+            if (i >= komalimit){
+                redPlayers[i].visibility = View.INVISIBLE
+                bluePlayers[i].visibility = View.INVISIBLE
+            }else{
+                redPlayers[i].visibility = View.VISIBLE
+                bluePlayers[i].visibility = View.VISIBLE
+            }
+        }
+//
+//        for (i in bluePlayers.indices.reversed()){
+//            if (i >= komalimit){
+//                bluePlayers[i].visibility = View.INVISIBLE
+//            }else{
+//                bluePlayers[i].visibility = View.VISIBLE
+//            }
+//        }
+    }
 
 
 //        private fun openGalleryForImage(){
