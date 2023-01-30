@@ -76,11 +76,19 @@ class EditActivity2 : AppCompatActivity() {
 
 
         /** color of red, pieces */
-        val redPlayers = arrayOf(binding.redPlayer01, binding.redPlayer02,binding.redPlayer03,binding.redPlayer04,binding.redPlayer05,binding.redPlayer06,binding.redPlayer07,binding.redPlayer08,binding.redPlayer09,binding.redPlayer10,binding.redPlayer11)
+        val redPlayers = arrayOf(
+            binding.redPlayer01, binding.redPlayer02, binding.redPlayer03,
+            binding.redPlayer04, binding.redPlayer05, binding.redPlayer06,
+            binding.redPlayer07, binding.redPlayer08, binding.redPlayer09,
+            binding.redPlayer10, binding.redPlayer11)
         val redPlayers_x:Array<Float> = Array(11){0f}
         val redPlayers_y:Array<Float> = Array(11){0f}
         /** color ob blue pieces */
-        val bluePlayers = arrayOf(binding.bluePlayer01, binding.bluePlayer02,binding.bluePlayer03,binding.bluePlayer04,binding.bluePlayer05,binding.bluePlayer06,binding.bluePlayer07,binding.bluePlayer08,binding.bluePlayer09,binding.bluePlayer10,binding.bluePlayer11)
+        val bluePlayers = arrayOf(
+            binding.bluePlayer01, binding.bluePlayer02, binding.bluePlayer03,
+            binding.bluePlayer04, binding.bluePlayer05, binding.bluePlayer06,
+            binding.bluePlayer07, binding.bluePlayer08, binding.bluePlayer09,
+            binding.bluePlayer10,binding.bluePlayer11)
         val bluePlayers_x:Array<Float> = Array(11){0f}
         val bluePlayers_y:Array<Float> = Array(11){0f}
 

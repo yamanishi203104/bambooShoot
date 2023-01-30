@@ -23,7 +23,6 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
     private var path: Path? = null
     var color: Int? = null
     var prevBitmap: Bitmap? = null
-    var tempBitmap: Bitmap? = null
     private var prevCanvas: Canvas? = null
     private var canvas: Canvas? = null
     val linears: Linears = Linears()
@@ -223,6 +222,7 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         /// ビットマップを初期化
 //        tempBitmap = Bitmap.createBitmap(width!!, height!!, Bitmap.Config.ARGB_8888)
 //        canvas!!.drawBitmap(tempBitmap!!, 0F, 0F, null)
+        initializeBitmap()
 
         //// pathを描画
         // TODO 一つまで再現できるようにする必要あり。
@@ -237,6 +237,7 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
                 break
             }
             canvas!!.drawPath(item.path, item.paint)
+            prevCanvas!!.drawPath(item.path, item.paint)
             Log.d("★★", "path:" + item.path + ", color:" + item.paint.color.toString())
         }
 
