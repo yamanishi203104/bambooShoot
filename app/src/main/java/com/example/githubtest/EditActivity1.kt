@@ -187,6 +187,19 @@ class EditActivity1 : AppCompatActivity() {
             customSurfaceView.undo()
         }
 
+        var ballFlag :Boolean = true
+        binding.ballButton.setOnClickListener {
+            if (ballFlag){
+                binding.blackBall.visibility = View.INVISIBLE
+                ballFlag != ballFlag
+            }else{
+                binding.blackBall.visibility = View.VISIBLE
+                binding.blackBall.translationX = ballx
+                binding.blackBall.translationY = bally
+                ballFlag != ballFlag
+            }
+        }
+
         var komalimit :Int = 0
         binding.chooseBoardSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -348,6 +361,18 @@ class EditActivity1 : AppCompatActivity() {
 
             binding.undoButton.setOnClickListener {
                 customSurfaceView.undo()
+            }
+
+            binding.ballButton.setOnClickListener {
+                if (ballFlag){
+                    binding.blackBall.visibility = View.INVISIBLE
+                    ballFlag != ballFlag
+                }else{
+                    binding.blackBall.visibility = View.VISIBLE
+                    binding.blackBall.translationX = ballx
+                    binding.blackBall.translationY = bally
+                    ballFlag != ballFlag
+                }
             }
         }
 
