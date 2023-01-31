@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="piecesamount">]
-        <item>０</item>
-        <item>１</item>
-        <item>２</item>
-        <item>３</item>
-        <item>４</item>
-        <item>５</item>
-        <item>６</item>
-        <item>７</item>
-        <item>８</item>
-        <item>９</item>
-        <item>１０</item>
         <item>１１</item>
+        <item>１０</item>
+        <item>９</item>
+        <item>８</item>
+        <item>７</item>
+        <item>６</item>
+        <item>５</item>
+        <item>４</item>
+        <item>３</item>
+        <item>２</item>
+        <item>１</item>
+        <item>０</item>
     </string-array>
 </resources>
