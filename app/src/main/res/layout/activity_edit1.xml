@@ -409,4 +409,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clearButton" />
 
+    <Spinner
+        android:id="@+id/choosePiecesamount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:entries="@array/piecesamount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

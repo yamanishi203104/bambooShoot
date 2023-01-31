@@ -98,6 +98,16 @@
         app:layout_constraintTop_toBottomOf="@+id/chooseBoardButton"
         tools:ignore="TouchTargetSizeCheck" />
 
+    <Spinner
+        android:id="@+id/choosePiecesamount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:entries="@array/piecesamount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner"
+        tools:ignore="TouchTargetSizeCheck" />
+
     <ImageButton
         android:id="@+id/blackButton"
         android:layout_width="25dp"

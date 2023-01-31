@@ -248,6 +248,52 @@ class EditActivity1 : AppCompatActivity() {
             }
         }
 
+        binding.choosePiecesamount.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val text = parent?.selectedItem as String
+                when(text){
+                    "０" -> komalimit = KomaLimit.FREE.num
+                    "１" -> komalimit = KomaLimit.TENNIS.num
+                    "２" -> komalimit = KomaLimit.two.num
+                    "３" -> komalimit = KomaLimit.three.num
+                    "４" -> komalimit = KomaLimit.four.num
+                    "５" -> komalimit = KomaLimit.BASKET.num
+                    "６" -> komalimit = KomaLimit.VOLLEY.num
+                    "７" -> komalimit = KomaLimit.HAND.num
+                    "８" -> komalimit = KomaLimit.eight.num
+                    "９" -> komalimit = KomaLimit.nine.num
+                    "１０" -> komalimit = KomaLimit.ten.num
+                    "１１" -> komalimit = KomaLimit.SOCCER.num
+                }
+                komahenko(komalimit,redPlayers,bluePlayers)
+
+                binding.blackBall.translationX = ballx
+                binding.blackBall.translationY = bally
+
+                for (player in redPlayers){
+                    var i = 0
+                    player.translationX = redPlayers_x[i]
+                    player.translationY = redPlayers_y[i]
+                    i++
+                }
+
+                for (player in bluePlayers){
+                    var i = 0
+                    player.translationX = bluePlayers_x[i]
+                    player.translationY = bluePlayers_y[i]
+                    i++
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+
         binding.playButton.setOnClickListener {
             if(check == true){
                 binding.videoView.pause()
