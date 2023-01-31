@@ -23,6 +23,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.githubtest.databinding.ActivityEdit2Binding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import layout.KomaLimit
 import java.io.File
 import java.lang.Exception
 
@@ -185,6 +186,7 @@ class EditActivity2 : AppCompatActivity() {
             customSurfaceView.undo()
         }
 
+        var komalimit :Int = 0
         binding.chooseBoardSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -194,13 +196,33 @@ class EditActivity2 : AppCompatActivity() {
             ) {
                 val text = parent?.selectedItem as String
                 when(text){
-                    "フリー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_free)
-                    "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccer)
-                    "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketball)
-                    "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennis)
-                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handball)
-                    "バレー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyball)
+                    "フリー" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_free)
+                        komalimit = KomaLimit.FREE.num
+                    }
+                    "サッカー" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccer)
+                        komalimit = KomaLimit.SOCCER.num
+                    }
+                    "バスケ" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketball)
+                        komalimit = KomaLimit.BASKET.num
+                    }
+                    "テニス" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennis)
+                        komalimit = KomaLimit.TENNIS.num
+                    }
+                    "ハンドボール" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handball)
+                        komalimit = KomaLimit.HAND.num
+                    }
+                    "バレー" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyball)
+                        komalimit = KomaLimit.VOLLEY.num
+                    }
                 }
+
+                komahenko(komalimit,redPlayers,bluePlayers)
 
                 binding.blackBall.translationX = ballx
                 binding.blackBall.translationY = bally
