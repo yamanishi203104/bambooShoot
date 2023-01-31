@@ -24,6 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.PathUtils
 import com.example.githubtest.databinding.ActivityEdit1Binding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import layout.KomaLimit
 import java.io.File
 import java.lang.Exception
 
@@ -182,6 +183,11 @@ class EditActivity1 : AppCompatActivity() {
             customSurfaceView.reset()
         }
 
+        binding.undoButton.setOnClickListener {
+            customSurfaceView.undo()
+        }
+
+        var komalimit :Int = 0
         binding.chooseBoardSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -191,13 +197,33 @@ class EditActivity1 : AppCompatActivity() {
             ) {
                 val text = parent?.selectedItem as String
                 when(text){
-                    "フリー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_freetate)
-                    "サッカー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccertate)
-                    "バスケ" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketballtate)
-                    "テニス" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennistate)
-                    "ハンドボール" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handballtate)
-                    "バレー" -> binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyballtate)
+                    "フリー" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_freetate)
+                        komalimit = KomaLimit.FREE.num
+                    }
+                    "サッカー" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccertate)
+                        komalimit = KomaLimit.SOCCER.num
+                    }
+                    "バスケ" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketballtate)
+                        komalimit = KomaLimit.BASKET.num
+                    }
+                    "テニス" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennistate)
+                        komalimit = KomaLimit.TENNIS.num
+                    }
+                    "ハンドボール" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handballtate)
+                        komalimit = KomaLimit.HAND.num
+                    }
+                    "バレー" -> {
+                        binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyballtate)
+                        komalimit = KomaLimit.VOLLEY.num
+                    }
                 }
+                komahenko(komalimit,redPlayers,bluePlayers)
+
                 binding.blackBall.translationX = ballx
                 binding.blackBall.translationY = bally
 
@@ -272,6 +298,10 @@ class EditActivity1 : AppCompatActivity() {
 
             binding.smallpenButton.setOnClickListener {
                 customSurfaceView.changePensize("small")
+            }
+
+            binding.undoButton.setOnClickListener {
+                customSurfaceView.undo()
             }
         }
 
@@ -505,6 +535,21 @@ class EditActivity1 : AppCompatActivity() {
 
     private fun makeRequest(){
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),RECORD_REQUEST_CODE)
+    }
+
+    fun komahenko(
+        komalimit:Int,
+        redPlayers:Array<ImageView>,
+        bluePlayers:Array<ImageView>){
+        for (i in redPlayers.indices.reversed()){
+            if (i >= komalimit){
+                redPlayers[i].visibility = View.INVISIBLE
+                bluePlayers[i].visibility = View.INVISIBLE
+            }else{
+                redPlayers[i].visibility = View.VISIBLE
+                bluePlayers[i].visibility = View.VISIBLE
+            }
+        }
     }
 
     fun onbuttonTapped(view: View){

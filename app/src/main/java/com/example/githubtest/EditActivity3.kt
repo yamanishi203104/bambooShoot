@@ -120,6 +120,10 @@ class EditActivity3 : AppCompatActivity() {
             customSurfaceView.reset()
         }
 
+        binding.undoButton.setOnClickListener {
+            customSurfaceView.undo()
+        }
+
         binding.playButton.setOnClickListener {
             if(check == true){
                 binding.videoView.pause()
@@ -170,6 +174,10 @@ class EditActivity3 : AppCompatActivity() {
 
             binding.smallpenButton.setOnClickListener {
                 customSurfaceView.changePensize("small")
+            }
+
+            binding.undoButton.setOnClickListener {
+                customSurfaceView.undo()
             }
         }
 

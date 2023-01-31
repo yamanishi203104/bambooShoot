@@ -182,7 +182,7 @@ class EditActivity2 : AppCompatActivity() {
             customSurfaceView.reset()
         }
 
-        binding.button4.setOnClickListener {
+        binding.undoButton.setOnClickListener {
             customSurfaceView.undo()
         }
 
@@ -495,6 +495,21 @@ class EditActivity2 : AppCompatActivity() {
         }
     }
     /*録画機能#3ここまで*/
+
+    fun komahenko(
+        komalimit:Int,
+        redPlayers:Array<ImageView>,
+        bluePlayers:Array<ImageView>){
+        for (i in redPlayers.indices.reversed()){
+            if (i >= komalimit){
+                redPlayers[i].visibility = View.INVISIBLE
+                bluePlayers[i].visibility = View.INVISIBLE
+            }else{
+                redPlayers[i].visibility = View.VISIBLE
+                bluePlayers[i].visibility = View.VISIBLE
+            }
+        }
+    }
 
 
 //        private fun openGalleryForImage(){

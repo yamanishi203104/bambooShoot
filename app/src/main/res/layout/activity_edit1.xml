@@ -387,7 +387,7 @@
         android:text="コマリセット"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+        app:layout_constraintTop_toBottomOf="@+id/undoButton" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/toggleButton"
@@ -399,5 +399,14 @@
         app:layout_constraintBottom_toTopOf="@+id/playButton"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_video" />
+
+    <Button
+        android:id="@+id/undoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1つ戻る"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
