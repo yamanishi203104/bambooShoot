@@ -152,30 +152,44 @@ class EditActivity2 : AppCompatActivity() {
 
         binding.blackButton.setOnClickListener {
             customSurfaceView.changeColor("black")
+            changeColor()
+            binding.blackButton.setImageResource(R.drawable.choosekurokoma)
         }
 
         binding.whiteButton.setOnClickListener {
             customSurfaceView.changeColor("white")
+            changeColor()
+            binding.whiteButton.setImageResource(R.drawable.choosesirokoma)
         }
 
         binding.redButton.setOnClickListener {
             customSurfaceView.changeColor("red")
+            changeColor()
+            binding.redButton.setImageResource(R.drawable.chooseakakoma)
         }
 
         binding.yellowButton.setOnClickListener {
             customSurfaceView.changeColor("yellow")
+            changeColor()
+            binding.yellowButton.setImageResource(R.drawable.choosekikoma)
         }
 
         binding.bigpenButton.setOnClickListener {
             customSurfaceView.changePensize("big")
+            changeSize()
+            binding.bigpenButton.setImageResource(R.drawable.choosebig)
         }
 
         binding.midpenButton.setOnClickListener {
             customSurfaceView.changePensize("mid")
+            changeSize()
+            binding.midpenButton.setImageResource(R.drawable.choosemid)
         }
 
         binding.smallpenButton.setOnClickListener {
             customSurfaceView.changePensize("small")
+            changeSize()
+            binding.smallpenButton.setImageResource(R.drawable.choosesmall)
         }
 
         binding.clearButton.setOnClickListener {
@@ -568,6 +582,19 @@ class EditActivity2 : AppCompatActivity() {
                 bluePlayers[i].visibility = View.VISIBLE
             }
         }
+    }
+
+    fun changeColor(){
+        binding.blackButton.setImageResource(R.drawable.kurokoma)
+        binding.whiteButton.setImageResource(R.drawable.sirokoma)
+        binding.redButton.setImageResource(R.drawable.akakoma)
+        binding.yellowButton.setImageResource(R.drawable.kikoma)
+    }
+
+    fun changeSize(){
+        binding.bigpenButton.setImageResource(R.drawable.big)
+        binding.midpenButton.setImageResource(R.drawable.mid)
+        binding.smallpenButton.setImageResource(R.drawable.small)
     }
 
 
