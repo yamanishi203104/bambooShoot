@@ -191,12 +191,12 @@ class EditActivity1 : AppCompatActivity() {
         binding.ballButton.setOnClickListener {
             if (ballFlag){
                 binding.blackBall.visibility = View.INVISIBLE
-                ballFlag != ballFlag
+                ballFlag = !ballFlag
             }else{
                 binding.blackBall.visibility = View.VISIBLE
                 binding.blackBall.translationX = ballx
                 binding.blackBall.translationY = bally
-                ballFlag != ballFlag
+                ballFlag = !ballFlag
             }
         }
 
@@ -366,12 +366,12 @@ class EditActivity1 : AppCompatActivity() {
             binding.ballButton.setOnClickListener {
                 if (ballFlag){
                     binding.blackBall.visibility = View.INVISIBLE
-                    ballFlag != ballFlag
+                    ballFlag = !ballFlag
                 }else{
                     binding.blackBall.visibility = View.VISIBLE
                     binding.blackBall.translationX = ballx
                     binding.blackBall.translationY = bally
-                    ballFlag != ballFlag
+                    ballFlag = !ballFlag
                 }
             }
         }
