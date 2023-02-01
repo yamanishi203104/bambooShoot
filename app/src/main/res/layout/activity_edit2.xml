@@ -55,6 +55,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="ペン"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +75,8 @@
         android:id="@+id/pieceResetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="コマリセット"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +86,7 @@
         android:id="@+id/chooseBoardButton"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
         android:text="戦術ボード切替"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +109,7 @@
         android:layout_marginStart="8dp"
         android:entries="@array/piecesamount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/komasuu"
         tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
@@ -416,11 +418,20 @@
 
     <Button
         android:id="@+id/ballButton"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="ボール          ON/OFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choosePiecesamount" />
+
+    <Button
+        android:id="@+id/komasuu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="ボール"
+        android:text="コマ数"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosePiecesamount" />
+        app:layout_constraintTop_toBottomOf="@+id/chooseBoardSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
