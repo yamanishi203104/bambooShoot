@@ -58,13 +58,6 @@ class EditActivity1 : AppCompatActivity() {
     private var videoUri: String = ""
     private val ORIENTATIONS = SparseIntArray()
     /*録画機能#1ここまで*/
-//
-//    init {
-//        ORIENTATIONS.append(Surface.ROTATION_0,90)
-//        ORIENTATIONS.append(Surface.ROTATION_90,0)
-//        ORIENTATIONS.append(Surface.ROTATION_180,270)
-//        ORIENTATIONS.append(Surface.ROTATION_270,180)
-//    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -668,47 +661,4 @@ class EditActivity1 : AppCompatActivity() {
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
     }
-
-//    private fun setupPermissions(){
-//        val permission = ContextCompat.checkSelfPermission(this,android.Manifest.permission.READ_EXTERNAL_STORAGE)
-//
-//        if(permission != PackageManager.PERMISSION_GRANTED){
-//            makeRequest()
-//        }
-//    }
-//
-//    private fun makeRequest(){
-//        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),RECORD_REQUEST_CODE)
-//    }
-//
-//
-//
-//
-//
-//
-//
-//
 }
-
-
-        //val myView :MyView = findViewById(R.id.myView)
-        //val myView :MyView = binding.myView
-
-        /*
-        binding.choosePenColorSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val spinner = parent as? Spinner
-                val item = spinner?.selectedItem as? String
-                item?.let {
-                    if (it.isNotEmpty()){
-                        MyView.changeColor(it)
-                    }
-                }
-            }
-        }*/

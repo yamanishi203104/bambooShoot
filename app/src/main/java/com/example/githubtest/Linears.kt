@@ -58,10 +58,6 @@ class Linears {
 
 }
 
-//public var limiter = linears - 1
-//    init {
-//        linears = ArrayDeque()
-//    }
 public fun Linears.getLinears(): ArrayDeque<LinearBean> {
     return this.linears
 }

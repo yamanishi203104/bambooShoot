@@ -52,12 +52,6 @@ class EditActivity2 : AppCompatActivity() {
     private val ORIENTATIONS = SparseIntArray()
     /*録画機能#1ここまで*/
 
-//    private val REQUEST_GALLERY_TAKE = 2
-//    private val RECORD_REQUEST_CODE = 1000
-//
-//    private lateinit var storage_vv: VideoView
-//    private lateinit var storage_btn: Button
-
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,15 +60,6 @@ class EditActivity2 : AppCompatActivity() {
 
         val actionBar = supportActionBar
         actionBar!!.hide()
-
-//        val redPlayer01x : Float = binding.redPlayer01.x
-//        val redPlayer01y : Float = binding.redPlayer01.y
-//
-//        binding.button4.setOnClickListener {
-//            binding.redPlayer01.translationX = redPlayer01x
-//            binding.redPlayer01.translationY = redPlayer01y
-//        }
-
 
         /** color of red, pieces */
         val redPlayers = arrayOf(
@@ -354,46 +339,6 @@ class EditActivity2 : AppCompatActivity() {
                 toggleScreenShare(toggleButton)
             }
         }
-
-//        storage_btn.setOnClickListener {
-//            openGalleryForImage()
-//
-//            val customSurfaceView = CustomSurfaceView(this, binding.surfaceView)
-//            binding.surfaceView.setOnTouchListener { v, event ->
-//                customSurfaceView.onTouch(event)
-//            }
-//
-//            binding.clearButton.setOnClickListener {
-//                customSurfaceView.reset()
-//            }
-//
-//            binding.blackButton.setOnClickListener {
-//                customSurfaceView.changeColor("black")
-//            }
-//
-//            binding.whiteButton.setOnClickListener {
-//                customSurfaceView.changeColor("white")
-//            }
-//
-//            binding.redButton.setOnClickListener {
-//                customSurfaceView.changeColor("red")
-//            }
-//
-//            binding.yellowButton.setOnClickListener {
-//                customSurfaceView.changeColor("yellow")
-//            }
-//
-//            binding.bigpenButton.setOnClickListener {
-//                customSurfaceView.changePensize("big")
-//            }
-//
-//            binding.midpenButton.setOnClickListener {
-//                customSurfaceView.changePensize("mid")
-//            }
-//
-//            binding.smallpenButton.setOnClickListener {
-//                customSurfaceView.changePensize("small")
-//            }
     }
 
     private fun toggleScreenShare(v: FloatingActionButton?){
@@ -596,25 +541,4 @@ class EditActivity2 : AppCompatActivity() {
         binding.midpenButton.setImageResource(R.drawable.mid)
         binding.smallpenButton.setImageResource(R.drawable.small)
     }
-
-
-//        private fun openGalleryForImage(){
-//            val intent = Intent(Intent.ACTION_PICK)
-//            intent.type = "video/*"
-//            startActivityForResult(intent,REQUEST_GALLERY_TAKE)
-//        }
-
-//        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//            super.onActivityResult(requestCode, resultCode, data)
-//
-//            when(requestCode){
-//                2->{
-//                    if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_GALLERY_TAKE){
-//                        storage_vv.setVideoURI(data?.data)
-//                        binding.videoView.start()
-//                        Log.d("★","error")
-//                    }
-//                }
-//            }
-//        }
-    }
+}

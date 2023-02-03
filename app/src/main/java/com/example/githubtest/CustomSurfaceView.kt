@@ -27,11 +27,6 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
     private var canvas: Canvas? = null
     val linears: Linears = Linears()
 
-//    private val mUndoStack: ArrayDeque<Path> = ArrayDeque()
-//    private val mColorStack: ArrayDeque<Int> = ArrayDeque()
-
-//    private val linearsStack: ArrayDeque<LinearBean> = ArrayDeque()
-
     var width: Int? = null
     var height: Int? = null
 
@@ -155,26 +150,8 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         /// 前回のキャンバスを描画
         prevCanvas!!.drawPath(path!!, paint!!)
 
-//        mUndoStack.addLast(path!!)
-//        mColorStack.addLast(color!!)
-
-//        val paint_:Paint = Paint()
-//        paint_!!.color = color!!
-//        paint_!!.style = Paint.Style.STROKE
-//        paint_!!.strokeCap = Paint.Cap.ROUND
-//        paint_!!.isAntiAlias = true
-//        paint_!!.strokeWidth = pensiz
-
-//        linearsStack.addLast(LinearBean(path = path!!,paint = paint_!!))
-
-//        while(linears.counter-- > 0){
-//            linears.remove()
-//        }
-//        linears.counter = 0
-
         linears.add(path!!,color!!,pensiz)
 
-//        val a = linearsStack.last()
         val a = linears.last()
         Log.d("★", "path:" + a.path!!.toString() + ", color:" + a.paint!!.color.toString())
     }
@@ -186,7 +163,6 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         canvas = surfaceHolder!!.lockCanvas()
         canvas?.drawColor(0, PorterDuff.Mode.CLEAR)
         surfaceHolder!!.unlockCanvasAndPost(canvas)
-//        linearsStack.removeAll(linearsStack)
         linears.removeAll()
         linears.counter = 0
     }
@@ -195,9 +171,6 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 
     /// undo メソッド(仮)
     fun undo(){
-//        if(mUndoStack.isEmpty()){
-//            return
-//        }
         if(linears.isEmpty()){
             return
         }
@@ -206,9 +179,6 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
             return
         }
 
-
-//        mUndoStack.removeLast()
-//        mColorStack.removeLast()
         linears.remove()
         linears.redraw()
 
@@ -220,18 +190,10 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         canvas!!.drawColor(0, PorterDuff.Mode.CLEAR)
 
         /// ビットマップを初期化
-//        tempBitmap = Bitmap.createBitmap(width!!, height!!, Bitmap.Config.ARGB_8888)
-//        canvas!!.drawBitmap(tempBitmap!!, 0F, 0F, null)
         initializeBitmap()
 
         //// pathを描画
         // TODO 一つまで再現できるようにする必要あり。
-//        var temp = mColorStack.size-1
-//        for(path in mUndoStack){
-//            paint!!.color = mColorStack[temp]
-//            canvas!!.drawPath(path, paint!!)
-//            temp--
-//        }
         for(item in linears.linears) {
             if(linears.isEmpty()){
                 break
@@ -243,8 +205,6 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
 
         /// ロックを解除
         surfaceHolder!!.unlockCanvasAndPost(canvas)
-
-        //prevBitmap =
     }
 
     /// color チェンジメソッド
