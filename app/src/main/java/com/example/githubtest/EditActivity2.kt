@@ -210,26 +210,32 @@ class EditActivity2 : AppCompatActivity() {
                 when(text){
                     "フリー" -> {
                         binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_free)
+                        binding.blackBall.setImageResource(R.drawable.blackpiece)
                         komalimit = KomaLimit.FREE.num
                     }
                     "サッカー" -> {
                         binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_soccer)
+                        binding.blackBall.setImageResource(R.drawable.soccer_ball)
                         komalimit = KomaLimit.SOCCER.num
                     }
                     "バスケ" -> {
                         binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_basketball)
+                        binding.blackBall.setImageResource(R.drawable.sport_basketball)
                         komalimit = KomaLimit.BASKET.num
                     }
                     "テニス" -> {
                         binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_tennis)
+                        binding.blackBall.setImageResource(R.drawable.sport_tennis_ball)
                         komalimit = KomaLimit.TENNIS.num
                     }
                     "ハンドボール" -> {
                         binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_handball)
+                        binding.blackBall.setImageResource(R.drawable.handball_ball)
                         komalimit = KomaLimit.HAND.num
                     }
                     "バレー" -> {
                         binding.tacticalBoard.setImageResource(R.drawable.tacticsboad_volleyball)
+                        binding.blackBall.setImageResource(R.drawable.sports_ball_volleyball_greenred)
                         komalimit = KomaLimit.VOLLEY.num
                     }
                 }
