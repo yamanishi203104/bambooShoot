@@ -40,10 +40,7 @@ class MyView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
             "黒" -> paint.color = Color.BLACK
             "赤" -> paint.color = Color.RED
         }
-        //paint!!.color = color as Int
-        //this.paint.color = Color.YELLOW
-        //canvas?.drawPath(path,paint)
-        //invalidate()
+
         Log.d("★","☆")
     }
 
@@ -65,8 +62,6 @@ class MyView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
         }
 
         invalidate()
-
-        //return super.onTouchEvent(event)
         return true
     }
 

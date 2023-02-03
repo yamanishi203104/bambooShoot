@@ -167,8 +167,6 @@ class CustomSurfaceView: SurfaceView, SurfaceHolder.Callback{
         linears.counter = 0
     }
 
-//    val counter : Int = 0
-
     /// undo メソッド(仮)
     fun undo(){
         if(linears.isEmpty()){
