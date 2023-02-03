@@ -27,6 +27,7 @@ class MyView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
             paint.color = Color.RED
             isFirst = false
         }
+        
 
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 20F
